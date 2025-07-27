@@ -287,6 +287,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 }
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR, int nCmdShow) {
+    // 最小化自身的控制台窗口（如果有）
+    HWND hConsole = GetConsoleWindow();
+    if (hConsole) ShowWindow(hConsole, SW_MINIMIZE);
     INITCOMMONCONTROLSEX icc = { sizeof(icc), ICC_BAR_CLASSES };
     InitCommonControlsEx(&icc);
 
